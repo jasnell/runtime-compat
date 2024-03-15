@@ -6250,7 +6250,7 @@
       "code": "\"Intl\" in self && \"NumberFormat\" in Intl && \"formatRange\" in Intl.NumberFormat.prototype",
       "exposure": "Window"
     },
-    "result": true
+    "result": false
   },
   {
     "name": "javascript.builtins.Intl.NumberFormat.formatRangeToParts",
@@ -6258,7 +6258,7 @@
       "code": "\"Intl\" in self && \"NumberFormat\" in Intl && \"formatRangeToParts\" in Intl.NumberFormat.prototype",
       "exposure": "Window"
     },
-    "result": true
+    "result": false
   },
   {
     "name": "javascript.builtins.Intl.NumberFormat.formatToParts",
@@ -6364,7 +6364,7 @@
       "code": "\"Intl\" in self && \"PluralRules\" in Intl && \"selectRange\" in Intl.PluralRules.prototype",
       "exposure": "Window"
     },
-    "result": true
+    "result": false
   },
   {
     "name": "javascript.builtins.Intl.RelativeTimeFormat",
@@ -34610,6 +34610,15 @@
     "message": "threw ReferenceError: Can't find variable: document"
   },
   {
+    "name": "api.HTMLElement.writingSuggestions",
+    "info": {
+      "code": "(function () {\n  var instance = document.createElement(\"b\");\n  return !!instance && \"writingSuggestions\" in instance;\n})();\n",
+      "exposure": "Window"
+    },
+    "result": null,
+    "message": "threw ReferenceError: Can't find variable: document"
+  },
+  {
     "name": "api.HTMLEmbedElement",
     "info": {
       "code": "(function () {\n  var instance = document.createElement(\"embed\");\n  return bcd.testObjectName(instance, \"HTMLEmbedElement\");\n})();\n",
@@ -48293,14 +48302,6 @@
     "name": "api.Navigator.getInstalledRelatedApps",
     "info": {
       "code": "(function () {\n  var instance = navigator;\n  return !!instance && \"getInstalledRelatedApps\" in instance;\n})();\n",
-      "exposure": "Window"
-    },
-    "result": false
-  },
-  {
-    "name": "api.Navigator.getUserMedia",
-    "info": {
-      "code": "(function () {\n  var instance = navigator;\n  return !!instance && \"getUserMedia\" in instance;\n})();\n",
       "exposure": "Window"
     },
     "result": false
@@ -72441,7 +72442,7 @@
       "code": "(function () {\n  if (!(\"URLSearchParams\" in self)) {\n    return { result: false, message: \"URLSearchParams is not defined\" };\n  }\n  var instance = new URLSearchParams(\"q=HelloWorld&target=MDN\");\n  instance = new URLSearchParams(\"foo=1&bar=2&foo=3&foo=1\");\n  instance.delete(\"foo\", \"1\");\n  return instance == \"bar=2&foo=3\";\n})();\n",
       "exposure": "Window"
     },
-    "result": false
+    "result": true
   },
   {
     "name": "api.URLSearchParams.entries",
@@ -72489,7 +72490,7 @@
       "code": "(function () {\n  if (!(\"URLSearchParams\" in self)) {\n    return { result: false, message: \"URLSearchParams is not defined\" };\n  }\n  var instance = new URLSearchParams(\"q=HelloWorld&target=MDN\");\n  instance = new URLSearchParams(\"foo=1&bar=2&foo=3&foo=1\");\n  return instance.has(\"bar\", \"2\") && !instance.has(\"bar\", \"3\");\n})();\n",
       "exposure": "Window"
     },
-    "result": false
+    "result": true
   },
   {
     "name": "api.URLSearchParams.keys",
@@ -74105,6 +74106,14 @@
     "name": "api.ViewTransition.skipTransition",
     "info": {
       "code": "\"ViewTransition\" in self && \"skipTransition\" in ViewTransition.prototype",
+      "exposure": "Window"
+    },
+    "result": false
+  },
+  {
+    "name": "api.ViewTransition.typeList",
+    "info": {
+      "code": "\"ViewTransition\" in self && \"typeList\" in ViewTransition.prototype",
       "exposure": "Window"
     },
     "result": false
